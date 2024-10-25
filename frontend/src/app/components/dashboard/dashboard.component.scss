@@ -1,8 +1,164 @@
-.example-card {
-  width: 400px;
+.sidebar {
+  background-color: #ff2e63;
+  min-height: 100vh;
 }
 
-.example-header-image {
-  // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.sidebar .nav-link {
+  color: #000000;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f1f1f1;
+  // border-radius: 20px;
+}
+
+.sidebar .nav-link.active {
+  background-color: #f1f1f1;
+  // border-radius: 20px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr img {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-right: 10px;
+}
+
+.signOut {
+  margin-top: 40vh;
+  margin-left: 5px;
+}
+
+::ng-deep .flex-column {
+  gap: 30px;
+  margin-top: 10px;
+}
+
+/********************* Responsive Design *************************/
+@media (max-width: 767px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+  }
+
+  .nav-link {
+    padding: 10px;
+  }
+
+  main {
+    margin-top: 100px;
+  }
+}
+
+
+
+
+
+
+
+/* dashboard-cards.component.scss */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px;
+
+  .card {
+    background-color: #EA738DFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    min-width: 200px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: #ed476b;
+    }
+
+    .card-content {
+      // padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 115px;
+
+      .card-header {
+        font-size: 18px;
+        font-weight: bold;
+        color: #101820FF;
+        border-bottom: #101820FF solid;
+      }
+
+      .card-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .count {
+          font-size: 24px;
+          font-weight: bold;
+          color: #101820FF;
+        }
+
+        .arrow-button {
+          background-color: #ffffff;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #000000;
+          font-size: 20px;
+          transition: background-color 0.3s ease-in-out;
+
+          /* &:hover {
+            background-color: #283593;
+          } */
+
+          i {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+
+    .card {
+      width: 90%;
+    }
+  }
 }

@@ -1,0 +1,42 @@
+<!-- Table -->
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Mother Name</th>
+        <th scope="col">Father Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.motherName }}</td>
+        <td>{{ student.fatherName }}</td>
+        <td>{{ student.address }}</td>
+        <td class="actions">
+          <!-- Edit Button -->
+          <span class="material-symbols-outlined" (click)="onEdit(student)">
+            edit
+          </span>
+          <!-- Delete Button -->
+          <span
+            class="material-symbols-outlined"
+            (click)="onDelete(student._id)"
+          >
+            delete
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal for Adding/Editing Students -->
+  <app-student-form
+    #studentModal
+    [student]="selectedStudent"
+    (submit)="onStudentEdited($event)"
+  ></app-student-form>
+</div>

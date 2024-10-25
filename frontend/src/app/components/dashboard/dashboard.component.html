@@ -1,11 +1,85 @@
-<h1>Dashboard Logged In</h1>
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+>
+  <h2>Dashboard</h2>
+  <div>
+    <button class="btn btn-primary">Export CSV</button>
+    <!-- <button class="btn btn-primary" (click)="addStudentModal.showModal = true">
+      Add Student
+    </button> -->
+    <button class="btn btn-primary" (click)="openAddStudentModal()">
+      Add Student
+    </button>
+    <app-student-form #addStudentModal></app-student-form>
+  </div>
+</div>
 
-<mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>{{ userName }}</mat-card-title>
-    </mat-card-header>
-    <img [src]="userProfile">
-    <mat-card-actions>
-      <button (click)="signOut()" mat-button>Sign Out</button>
-    </mat-card-actions>
-</mat-card>
+<!-- Search Bar -->
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search for a student by name or email"
+  />
+  <button class="btn btn-outline-secondary" type="button">Add filter</button>
+</div>
+
+<!-- dashboard-cards.component.html -->
+<div class="card-container">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <span>Students</span>
+      </div>
+      <div class="card-body">
+        <span class="count">1260</span>
+        <button class="arrow-button">
+          <!-- <i class="bi bi-arrow-right"></i> -->
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <span>Teachers</span>
+      </div>
+      <div class="card-body">
+        <span class="count">224</span>
+        <button class="arrow-button">
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <span>Parents</span>
+      </div>
+      <div class="card-body">
+        <span class="count">840</span>
+        <button class="arrow-button">
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <span>Earnings</span>
+      </div>
+      <div class="card-body">
+        <span class="count">$54000</span>
+        <button class="arrow-button">
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
