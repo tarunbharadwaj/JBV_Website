@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -49,6 +50,7 @@ import { TeacherFormComponent } from './components/forms/teacher-form/teacher-fo
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     MatIconModule,
     MatDividerModule,
     MatButtonModule,

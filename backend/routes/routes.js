@@ -6,7 +6,8 @@ const {
 	addStudent,
 	getAllStudents,
 	deleteStudent,
-	editStudent
+	editStudent,
+	searchStudent
 } = require('../controllers/dataController');
 
 /* POST ROUTES */
@@ -15,6 +16,7 @@ router.post('/addstudent', addStudent);
 /* GET ROUTES */
 router.get('/user/:email', getUserByEmail);
 router.get('/getstudents', getAllStudents);
+router.get('/searchstudent', searchStudent);
 
 /* PUT ROUTES */
 router.put('/getstudents/:id', editStudent);

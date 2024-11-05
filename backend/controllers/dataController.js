@@ -45,3 +45,15 @@ exports.editStudent = async (req, res) => {
 		res.status(500).json({ error: 'Failed to update student' });
 	}
 };
+
+exports.searchStudent = async (req, res) => {
+	const { query } = req.query;
+	const students = await Student.find({
+		name: { $regex: query, $options: 'i' }
+	});
+	/* const teachers = await Teacher.find({
+		name: { $regex: query, $options: 'i' }
+	}); */
+	const results = [...students];
+	res.json(results);
+};

@@ -15,33 +15,38 @@
 </div>
 
 <!-- Search Bar -->
-<div class="input-group mb-3">
+<!-- <div class="input-group mb-3">
   <input
     type="text"
     class="form-control"
     placeholder="Search for a student by name or email"
   />
   <button class="btn btn-outline-secondary" type="button">Add filter</button>
-</div>
+</div> -->
+
+<!-- This element will trigger the student count emission but won't display in the UI -->
+<app-students
+  (studentCount)="updateStudentCount($event)"
+  style="display: none"
+></app-students>
 
 <!-- dashboard-cards.component.html -->
 <div class="card-container">
-  <div class="card">
+  <div class="card" routerLink="/dashboard/students">
     <div class="card-content">
       <div class="card-header">
         <span>Students</span>
       </div>
       <div class="card-body">
-        <span class="count">1260</span>
+        <span class="count">{{ totalStudents }}</span>
         <button class="arrow-button">
-          <!-- <i class="bi bi-arrow-right"></i> -->
           <span class="material-symbols-outlined"> chevron_right </span>
         </button>
       </div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" routerLink="/dashboard/teachers">
     <div class="card-content">
       <div class="card-header">
         <span>Teachers</span>
@@ -55,7 +60,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-content">
       <div class="card-header">
         <span>Parents</span>
@@ -67,9 +72,9 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-content">
       <div class="card-header">
         <span>Earnings</span>
@@ -81,5 +86,5 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

@@ -1,3 +1,19 @@
+<!-- Search Bar -->
+<div class="input-group mt-3 mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search for student"
+    [(ngModel)]="searchQuery"
+    (input)="filterStudents()"
+  />
+</div>
+
+<!-- Showing Number of Students -->
+<div>
+  <h3>Total Number Of Students : {{ totalStudents }}</h3>
+</div>
+
 <!-- Table -->
 <div class="table-responsive">
   <table class="table table-hover align-middle">
@@ -11,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students">
+      <tr *ngFor="let student of filteredStudents">
         <td>{{ student.name }}</td>
         <td>{{ student.motherName }}</td>
         <td>{{ student.fatherName }}</td>

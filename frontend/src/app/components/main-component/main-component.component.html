@@ -1,136 +1,57 @@
 <!----------- Dashboard Page ------------>
 <div class="container-fluid">
-    <div class="row">
-      <!-------------- Sidebar :: Start ------------------>
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-        <div class="position-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                routerLink="/dashboard"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"
-              >
-                <i class="bi bi-speedometer2"></i> Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                routerLink="/dashboard/teachers"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"
-              >
-                <i class="bi bi-people"></i> Teachers
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                routerLink="/dashboard/students"
-                routerLinkActive="active"
-              >
-                <i class="bi bi-person-lines-fill"></i> Students
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                routerLink="/dashboard/classes"
-                routerLinkActive="active"
-              >
-                <i class="bi bi-credit-card"></i> Classes
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                routerLink="/dashboard/billing"
-                routerLinkActive="active"
-              >
-                <i class="bi bi-gear"></i> Billing
-              </a>
-            </li>
-          </ul>
-          <button class="signOut" (click)="signOut()" mat-button>Sign Out</button>
-        </div>
-      </nav>
-      <!-------------- Sidebar :: End ------------------>
-  
-      <!------ Main Content Area ------>
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <router-outlet></router-outlet>
-        <!-- <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
-        >
-          <h2>Students/Classes</h2>
-          <div>
-            <button class="btn btn-primary">Export CSV</button>
-            <button class="btn btn-primary">Add Student</button>
-          </div>
-        </div> -->
-  
-        <!-- Search Bar -->
-        <!-- <div class="input-group mb-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search for a student by name or email"
-          />
-          <button class="btn btn-outline-secondary" type="button">
-            Add filter
-          </button>
-        </div> -->
-  
-        <!-- Table -->
-        <!-- <div class="table-responsive">
-          <table class="table table-hover align-middle">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Student ID</th>
-                <th scope="col">Email address</th>
-                <th scope="col">Class</th>
-                <th scope="col">Gender</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <img
-                    src="assets/student1.jpg"
-                    alt="Student 1"
-                    class="rounded-circle"
-                    width="30"
-                  />
-                  Eneh Mercy
-                </td>
-                <td>703703</td>
-                <td>michelle.rivera.com</td>
-                <td>JSS 2</td>
-                <td>Female</td>
-              </tr> -->
-        <!-- Repeat similar rows for other students -->
-        <!--  <tr class="table-active">
-                <td>
-                  <img
-                    src="assets/student2.jpg"
-                    alt="Student 2"
-                    class="rounded-circle"
-                    width="30"
-                  />
-                  Cody Fisher
-                </td>
-                <td>547030</td>
-                <td>tim.jennings.com</td>
-                <td>SS 3</td>
-                <td>Female</td>
-              </tr>
-            </tbody>
-          </table>
-        </div> -->
-      </main>
-    </div>
+  <div class="row">
+    <!-------------- Sidebar :: Start ------------------>
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/dashboard"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/dashboard/teachers"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="bi bi-people"></i> Teachers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/dashboard/students"
+              routerLinkActive="active"
+            >
+              <i class="bi bi-person-lines-fill"></i> Students
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/dashboard/classes"
+              routerLinkActive="active"
+            >
+              <i class="bi bi-credit-card"></i> Classes
+            </a>
+          </li>
+        </ul>
+        <button class="signOut" (click)="signOut()" mat-button>Sign Out</button>
+      </div>
+    </nav>
+    <!-------------- Sidebar :: End ------------------>
+
+    <!------ Main Content Area ------>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <router-outlet></router-outlet>
+    </main>
   </div>
-  
+</div>

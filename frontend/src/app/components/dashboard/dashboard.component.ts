@@ -20,6 +20,8 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(StudentFormComponent) addStudentModal!: StudentFormComponent | any;
 
+  totalStudents: number = 0;
+
   constructor(
     private authService: AuthService,
     private cdr: ChangeDetectorRef
@@ -32,6 +34,10 @@ export class DashboardComponent implements OnInit {
       this.addStudentModal.closeModal();
       this.addStudentModal.resetForm();
     }
+  }
+
+  updateStudentCount(count: number) {
+    this.totalStudents = count;
   }
 
   // After the view is initialized, reset the modal state

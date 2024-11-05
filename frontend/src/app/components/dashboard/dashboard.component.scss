@@ -43,10 +43,10 @@
   margin-left: 5px;
 }
 
-::ng-deep .flex-column {
+/* ::ng-deep .flex-column {
   gap: 30px;
   margin-top: 10px;
-}
+} */
 
 /********************* Responsive Design *************************/
 @media (max-width: 767px) {
@@ -70,12 +70,6 @@
   }
 }
 
-
-
-
-
-
-
 /* dashboard-cards.component.scss */
 .card-container {
   display: flex;
@@ -85,7 +79,7 @@
   margin: 20px;
 
   .card {
-    background-color: #EA738DFF;
+    background-color: #ea738dff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 22%;
@@ -109,8 +103,8 @@
       .card-header {
         font-size: 18px;
         font-weight: bold;
-        color: #101820FF;
-        border-bottom: #101820FF solid;
+        color: #101820ff;
+        border-bottom: #101820ff solid;
       }
 
       .card-body {
@@ -121,7 +115,7 @@
         .count {
           font-size: 24px;
           font-weight: bold;
-          color: #101820FF;
+          color: #101820ff;
         }
 
         .arrow-button {
