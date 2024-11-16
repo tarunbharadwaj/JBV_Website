@@ -8,11 +8,12 @@ const StudentSchema = new mongoose.Schema(
 		fatherName: String,
 		address: String
 	},
-	{ collection: 'StudentsList' }  // Explicitly define the collection name
+	{ collection: 'StudentsList' } // Explicitly define the collection name
 );
 
 // Export the model, specifying the database name and schema
 const Student = mongoose.connection
 	.useDb('JBVSTUDENTS')
 	.model('Student', StudentSchema);
+
 module.exports = Student;

@@ -1,5 +1,5 @@
-<!-- Search Bar -->
-<div class="input-group mt-3 mb-3">
+<!-- Search Bar and Export Button-->
+<div class="input-group mt-3 mb-3 flex gap-5">
   <input
     type="text"
     class="form-control"
@@ -7,6 +7,11 @@
     [(ngModel)]="searchQuery"
     (input)="filterStudents()"
   />
+  <div class="export-button">
+    <button class="btn btn-success" (click)="exportToExcel()">
+      Export to Excel
+    </button>
+  </div>
 </div>
 
 <!-- Showing Number of Students -->

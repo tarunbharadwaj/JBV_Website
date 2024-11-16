@@ -1,1 +1,60 @@
-<p>teachers works!</p>
+<!-- Search Bar and Export Button-->
+<div class="input-group mt-3 mb-3 flex gap-5">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search for Teacher"
+    [(ngModel)]="searchQuery"
+    (input)="filterTeachers()"
+  />
+  <div>
+    <button class="btn btn-primary" (click)="openAddStudentModal()">
+      Add Teacher
+    </button>
+    <app-student-form #addTeacherModal></app-student-form>
+  </div>
+  <!-- <div class="export-button">
+    <button class="btn btn-success" (click)="exportToExcel()">
+      Export to Excel
+    </button>
+  </div> -->
+</div>
+
+<!-- Showing Number of Teachers -->
+<div>
+  <h3>Total Number Of Teachers : {{ totalTeachers }}</h3>
+</div>
+
+<!-- Table -->
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Address</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of filteredTeachers">
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.phoneNumber }}</td>
+        <td>{{ teacher.address }}</td>
+        <td class="actions">
+          <!-- Edit Button -->
+          <span class="material-symbols-outlined" (click)="onEdit(teacher)">
+            edit
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal for Adding/Editing Students -->
+  <app-teacher-form
+    #teacherModal
+    [teacher]="selectedTeacher"
+    (submit)="onStudentEdited($event)"
+  ></app-teacher-form>
+</div>

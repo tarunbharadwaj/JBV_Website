@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpService } from '../../../services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-form',
@@ -19,7 +20,8 @@ export class StudentFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private router: Router
   ) {
     this.studentForm = this.fb.group({
       name: [''],
@@ -78,6 +80,9 @@ export class StudentFormComponent implements OnInit {
         .subscribe((res) => {
           this.closeModal();
           this.toast.success('Student Added Succefully', 'Success!');
+          setTimeout(() => {
+            window.location.reload(); //to reload page
+          }, 2500);
         });
       /* .subscribe((newStudent) => {
           // Emit the newly added student object to the parent

@@ -1,11 +1,4 @@
-import {
-  Component,
-  Inject,
-  ViewChild,
-  OnInit,
-  AfterViewInit,
-  ChangeDetectorRef,
-} from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { StudentFormComponent } from '../forms/student-form/student-form.component';
 
@@ -21,14 +14,15 @@ export class DashboardComponent implements OnInit {
   @ViewChild(StudentFormComponent) addStudentModal!: StudentFormComponent | any;
 
   totalStudents: number = 0;
+  totalTeachers: number = 0;
 
   constructor(
-    private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private authService: AuthService // private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     /* this.addStudentModal.closeModal(); // Ensure the modal is closed/reset when the dashboard is loaded */
+
     // Reset the modal and form when the component is initialized
     if (this.addStudentModal) {
       this.addStudentModal.closeModal();
@@ -40,26 +34,9 @@ export class DashboardComponent implements OnInit {
     this.totalStudents = count;
   }
 
-  // After the view is initialized, reset the modal state
-  /* ngAfterViewInit(): void {
-    if (this.addStudentModal) {
-      this.addStudentModal.closeModal(); // Ensure the modal is closed/reset when the dashboard is loaded
-    }
-  } */
-
-  // Lifecycle hook after view initialization
-  /* ngAfterViewInit(): void {
-    // Detect changes after the view has been fully initialized
-    this.cdr.detectChanges();
-  } */
-
-  // Lifecycle hook when component is destroyed
-  /* ngOnDestroy(): void {
-    // Reset the modal state when leaving the dashboard
-    if (this.addStudentModal) {
-      this.addStudentModal.closeModal();
-    }
-  } */
+  updateTeacherCount(count: number) {
+    this.totalTeachers = count;
+  }
 
   openAddStudentModal() {
     /* this.addStudentModal.openModal(); // Make sure the modal opens */

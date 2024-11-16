@@ -3,7 +3,6 @@
 >
   <h2>Dashboard</h2>
   <div>
-    <button class="btn btn-primary">Export CSV</button>
     <!-- <button class="btn btn-primary" (click)="addStudentModal.showModal = true">
       Add Student
     </button> -->
@@ -14,21 +13,15 @@
   </div>
 </div>
 
-<!-- Search Bar -->
-<!-- <div class="input-group mb-3">
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Search for a student by name or email"
-  />
-  <button class="btn btn-outline-secondary" type="button">Add filter</button>
-</div> -->
-
-<!-- This element will trigger the student count emission but won't display in the UI -->
+<!-- This element will trigger the count emission but won't display in the UI -->
 <app-students
   (studentCount)="updateStudentCount($event)"
   style="display: none"
 ></app-students>
+<app-teachers
+  (teacherCount)="updateTeacherCount($event)"
+  style="display: none"
+></app-teachers>
 
 <!-- dashboard-cards.component.html -->
 <div class="card-container">
@@ -52,7 +45,7 @@
         <span>Teachers</span>
       </div>
       <div class="card-body">
-        <span class="count">224</span>
+        <span class="count">{{ totalTeachers }}</span>
         <button class="arrow-button">
           <span class="material-symbols-outlined"> chevron_right </span>
         </button>

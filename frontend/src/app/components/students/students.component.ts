@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl } from '@angular/forms';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-students',
@@ -16,8 +17,8 @@ export class StudentsComponent implements OnInit {
   selectedStudent: any = null;
   totalStudents: any;
 
-  searchControl = new FormControl('');
-  suggestions: any[] = [];
+  // searchControl = new FormControl('');
+  // suggestions: any[] = [];
   searchQuery: string = '';
   filteredStudents: any[] = [];
 
@@ -36,7 +37,7 @@ export class StudentsComponent implements OnInit {
       this.students = data;
       this.filteredStudents = data;
       this.totalStudents = this.students.length;
-      this.studentCount.emit(this.students.length); // Emit count after fetching
+      this.studentCount.emit(this.totalStudents); // Emit count after fetching
     });
   }
 
@@ -71,6 +72,7 @@ export class StudentsComponent implements OnInit {
             (student) => student._id !== studentId
           );
           this.toast.success('Student deleted successfully', 'Success!');
+          this.fetchStudents();
         });
     }
   }
@@ -99,5 +101,22 @@ export class StudentsComponent implements OnInit {
       // Add a new student to the list
       this.students.push(updatedStudent);
     } */
+  }
+
+  exportToExcel() {
+    // Map each student to include only selected fields
+    const dataToExport = this.students.map((stud) => ({
+      NAME: stud.name,
+      MOTHER_NAME: stud.motherName,
+      FATHER_NAME: stud.fatherName,
+      ADDRESS: stud.address,
+    }));
+
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataToExport);
+    const workbook: XLSX.WorkBook = {
+      Sheets: { Students: worksheet },
+      SheetNames: ['Students'],
+    };
+    XLSX.writeFile(workbook, 'Student_List.xlsx');
   }
 }
